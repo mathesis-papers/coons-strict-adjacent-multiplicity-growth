@@ -1,0 +1,11 @@
+{
+  "schema": "mathesis.materials.v1",
+  "work": "coons-strict-adjacent-multiplicity-growth",
+  "version": 3,
+  "repository_url": "https://github.com/mathesis-papers/coons-strict-adjacent-multiplicity-growth",
+  "site_url": "https://papers.trureturing.org/coons-strict-adjacent-multiplicity-growth/",
+  "doi": null,
+  "reading": {},
+  "slides": [],
+  "visualizations": []
+}

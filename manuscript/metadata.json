@@ -1,0 +1,15 @@
+{
+  "id": "coons-strict-adjacent-multiplicity-growth",
+  "revision": 3,
+  "problem_ids": ["coons-strict-adjacent-multiplicity-growth"],
+  "topic": "Calkin-Wilf maximum-growth thresholds and Coons's strict adjacent-multiplicity question for bounded radix partitions",
+  "title": "Elementary proofs of Dumont-Sidorov-Thomas growth bounds for Calkin-Wilf's and Coons's partition questions",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We give elementary proofs of consequences of Dumont, Sidorov and Thomas (1999, Propositions 6.8-6.9) answering the questions collected by Coons in The Calkin-Wilf problems on ell-ary partition functions (arXiv:2611.08109v1, Section 1, CW2, and Section 3, final display and following sentence): the first-linear-maximum answer is affirmative and the strict-adjacency answer is negative. A two-digit branching bound gives uniformly sublinear growth below digit bound ell^2-1 and all integer-power maximum-growth thresholds. For 2<=q<=ell, the upper logarithmic exponent is log_ell(q) throughout (q-1)(ell+1)<=k<=q*ell-1. The zero lower exponents, endpoint summatory identity, and attaining digit constructions are compared with prior results. We also give a corrected replacement for the exponent printed in Coons's Theorem 4.",
+  "summary": "Elementary written proofs recover previously published growth plateaux and summatory identities, and give uniform subcritical bounds at every integer-power threshold. Prior results of Dumont-Sidorov-Thomas, Protasov, Feng-Liardet-Thomas, Baker, de Castro and collaborators, and the later IRSI bound are explicitly credited. Pinned Lean declarations cover the radix-four upper-exponent instance at bounds five and six. Exact-integer programs check finite instances of the identities and branching constructions.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/87004d7eb03533d5078ed293778a5b22c8d99aa2/D5/S1/Digit/CoonsAdjacentGrowthRefutation.lean"
+}

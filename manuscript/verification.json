@@ -1,0 +1,38 @@
+{
+  "arithmetic": "exact integers",
+  "carry_parameters": "2<=q<=radix, 0<=m<=6, q^m<=4096",
+  "coefficient_comparisons": 1731357,
+  "coefficient_range": {
+    "maximum": 5000,
+    "minimum": 0
+  },
+  "critical_linear_identity_cases": 45000,
+  "digit_bounds": "radix-1 through radix^2-1; additional endpoint multipliers 1 through radix+3",
+  "distinct_carry_constructions": 107323,
+  "higher_threshold_parameters": "r=3,4; k=radix^r-2; 1<=n<=2000",
+  "higher_threshold_upper_bound_cases": 36000,
+  "linear_threshold_upper_bound_cases": 1650000,
+  "plateau_repunit_count_cases": 712,
+  "printed_exponent_counterexample": {
+    "digit_bound": 3,
+    "exact_count": "floor(n/2)+1",
+    "logarithmic_exponent": 1,
+    "radix": 2
+  },
+  "quotient_upper_bound_cases": 1695000,
+  "radices": {
+    "maximum": 10,
+    "minimum": 2
+  },
+  "scope": "Finite coefficient identities, carry constructions, and branching bounds; all limiting and threshold statements have written proofs in note.tex.",
+  "status": "pass",
+  "strict_point_count_example": {
+    "bound_5_count": 1,
+    "bound_6_count": 2,
+    "number": 6,
+    "radix": 4
+  },
+  "summatory_identity_cases": 405081,
+  "two_digit_branching_cases": 3879,
+  "unique_all_maximum_digit_cases": 235
+}

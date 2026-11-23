@@ -1,0 +1,472 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\N}{\mathbb N}
+\title{Elementary proofs of Dumont--Sidorov--Thomas growth bounds\\
+for Calkin--Wilf's and Coons's partition questions}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{19 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give elementary proofs of consequences of Dumont, Sidorov and
+Thomas (1999, Propositions~6.8--6.9) answering the questions collected
+by Coons in \emph{The Calkin--Wilf problems on $\ell$-ary partition
+functions} (arXiv:2611.08109v1, Section~1, CW2, and Section~3,
+final display and following sentence): the first-linear-maximum
+answer is affirmative and the strict-adjacency answer is negative.
+A two-digit branching bound gives uniformly sublinear growth below
+digit bound $\ell^2-1$; the same argument gives all integer-power
+maximum-growth thresholds.
+For $2\le q\le\ell$, the upper logarithmic exponent is $\log_\ell q$
+throughout $(q-1)(\ell+1)\le k\le q\ell-1$.
+The zero lower exponents, endpoint summatory identity, and their
+attaining digit constructions are compared explicitly with prior
+results. We also give a corrected replacement for the exponent
+printed in Coons's Theorem~4.
+\end{abstract}
+
+\section{Counts, questions, and the critical identities}
+For integers $\ell\ge2$, $k\ge0$, and $n\ge0$, let $b_{k,\ell}(n)$ be
+the number of finitely supported sequences $(d_i)_{i\ge0}$ such that
+\[
+ 0\le d_i\le k,\qquad \sum_{i\ge0}d_i\ell^i=n.
+\]
+Trailing zeros do not distinguish sequences, and $b_{k,\ell}(0)=1$.
+The count is finite, since $d_i>0$ implies $\ell^i\le n$.
+For $k\ge\ell-1$, ordinary radix expansions give positivity. In that
+range define, using natural logarithms and all integer inputs $n\ge2$,
+\[
+ A(k,\ell)=\limsup_{n\to\infty}\frac{\log b_{k,\ell}(n)}{\log n},
+ \qquad
+ L(k,\ell)=\liminf_{n\to\infty}\frac{\log b_{k,\ell}(n)}{\log n}.
+\]
+All constants implicit in $O$ or $\Theta$ may depend on the fixed digit
+bound and radix, never on $n$.
+
+Calkin and Wilf~\cite[Section~10, p.~18, Question~2]{CW} ask whether
+``$k=\ell^2-1$'' is the first bound with ``linear maximum growth.''
+Their count identity is
+\begin{equation}\label{eq:critical}
+ b_{\ell^2-1,\ell}(n)=\lfloor n/\ell\rfloor+1.
+\end{equation}
+Coons~\cite[Section~1, CW2; Section~3, last paragraph]{Coons}
+repeats this question and observes that it suffices to prove uniformly
+sublinear growth at $k=\ell^2-2$.
+He then asks whether
+\begin{equation}\label{eq:posed}
+ A(k,\ell)<A(k+1,\ell)\qquad(k\ge\ell-1)
+\end{equation}
+always holds, followed by ``What about the limit inferiors?''
+These questions have answers in earlier growth theory.
+Dumont, Sidorov and Thomas~\cite[Propositions~6.8--6.9]{DST} prove
+the endpoint summatory identity and sharp upper exponents, including
+all the plateaux below. Their formula gives
+\[
+ A(\ell^2-2,\ell)=\log_\ell
+ \frac{\ell-1+\sqrt{\ell^2+2\ell-3}}2<1,
+\]
+which already answers CW2 affirmatively.
+Protasov~\cite[Section~5, pp.~398--400]{Protasov} later obtains
+upper and lower exponents and exact block extrema by matrix methods.
+Feng, Liardet and Thomas~\cite[p.~50, after equation~(14)]{FLT}
+record both the sharp formula and the singleton witnesses for the
+zero lower exponents. Theorems~\ref{thm:threshold} and
+\ref{thm:plateaux} give direct digit proofs of the relevant answers,
+not claims of a first settlement.
+
+The critical identities are prior results, not consequences first
+observed here. More generally, Coons~\cite[Theorem~2, equation~(4)]{Coons}
+gives the sharper asymptotic of order $n^{r-1}$ at $k=\ell^r-1$.
+His Theorem~1 settles the first-linear-minimum question CW3, and
+Theorem~3 settles the monotonicity question CW8.
+The two-digit argument supplies a direct uniform gap below every integer
+growth threshold. For the linear threshold, the same exponent and
+two-digit contraction also appear in the later expository note
+IRSI~\cite[Sections~4--5]{IRSI}, displaying an update date of
+11 November 2026; that note also credits the 1999 sharp formula.
+The closest maximal-order comparison at the smaller
+bound $k=\ell$ is Defant's theorem, reproved by Coons and
+Spiegelhofer~\cite[Theorem~1]{CS}; their function $s_\ell(n)$ counts
+partitions of $n-1$ and gives $A(\ell,\ell)=\log_\ell\varphi$,
+where $\varphi=(1+\sqrt5)/2$.
+Here the arguments operate directly on digits.
+
+\section{A two-digit gap and the first linear maximum}
+\begin{theorem}\label{thm:threshold}
+Let $\ell\ge2$, $r\ge2$, and put
+\[
+ Q=\ell^{r-1},\qquad H=Q^2-Q/\ell,
+ \qquad \delta_{r,\ell}=\tfrac12\log_\ell H<r-1.
+\]
+For $0\le k\le\ell^r-2$ and $0\le n<\ell^{m+1}$,
+\begin{equation}\label{eq:block}
+ b_{k,\ell}(n)\le Q^{m\bmod2}H^{\lfloor m/2\rfloor}.
+\end{equation}
+Consequently $b_{k,\ell}(n)=O(n^{\delta_{r,\ell}})$ as $n\to\infty$.
+At $k=\ell^r-1$ the count is $\Theta(n^{r-1})$.
+Thus $\ell^r-1$ is the least digit bound whose upper logarithmic exponent
+is at least $r-1$.
+In particular, $\ell^2-1$ is the first bound with linear maximum growth,
+and below it
+\[
+ b_{k,\ell}(n)=O\bigl(n^{\frac12\log_\ell(\ell^2-1)}\bigr)=o(n).
+\]
+\end{theorem}
+\begin{proof}
+Count first at the largest permitted bound $K=\ell^r-2=\ell Q-2$;
+smaller bounds only remove representations.
+At a nonnegative residual integer $N$, write $N=\ell T+u$,
+$0\le u<\ell$. Its units digit must be
+\[
+ d=u+\ell v,\qquad N'=(N-d)/\ell=T-v.
+\]
+There are at most $Q$ choices of $v$, namely $0,\ldots,Q-1$.
+If $u=\ell-1$, the last choice is excluded by $d\le K$.
+Negative residuals are always discarded.
+
+There are at most $H$ choices of two consecutive units digits from
+any residual. If $u=\ell-1$, their number is at most
+$(Q-1)Q\le H$. Otherwise all $Q$ first choices may be considered.
+If any give a negative residual, at most $(Q-1)Q\le H$ pairs remain.
+If none do, the $Q$ consecutive integers $T-v$ contain exactly
+$Q/\ell$ with residue $\ell-1$; each of those excludes the last
+second choice. The number of pairs is therefore at most
+$Q^2-Q/\ell=H$. This also proves the bound when additional second
+choices yield negative residuals.
+
+Since $n<\ell^{m+1}$, every representation vanishes above index $m$.
+After its first $m$ digits have been removed, the remaining digit is
+uniquely determined and less than $\ell$. Group those $m$ choices
+into pairs, with one single choice if $m$ is odd, to obtain
+\eqref{eq:block}. For $n\ge1$, set $m=\lfloor\log_\ell n\rfloor$.
+The right side of~\eqref{eq:block} is at most $QH^{m/2}$, hence
+at most $Qn^{\delta_{r,\ell}}$. Since $H<Q^2$, the exponent is
+strictly below $r-1$.
+
+For completeness, at the critical bound the generating product
+telescopes as a formal power series:
+\begin{equation}\label{eq:telescoping}
+ \sum_{n\ge0}b_{\ell^r-1,\ell}(n)z^n
+ =\prod_{j\ge0}\frac{1-z^{\ell^{j+r}}}{1-z^{\ell^j}}
+ =\prod_{j=0}^{r-1}(1-z^{\ell^j})^{-1}.
+\end{equation}
+Every fixed coefficient involves finitely many factors, which justifies
+the cancellation. Thus the coefficient counts nonnegative solutions
+to $n=e_0+\ell e_1+\cdots+\ell^{r-1}e_{r-1}$.
+There are at most $\prod_{j=1}^{r-1}(1+n/\ell^j)=O(n^{r-1})$.
+Choosing each $e_j$, $j\ge1$, independently between zero and
+$\lfloor n/((r-1)\ell^j)\rfloor$ leaves a nonnegative, uniquely
+determined $e_0$. Their number is $\Omega(n^{r-1})$.
+This reproves the order supplied by Coons's more precise formula.
+For $r=2$ the count is exactly~\eqref{eq:critical}.
+Digit-bound inclusion proves the threshold assertion for all larger
+$k$. Bounds $k<\ell-1$ have at most one representation, so cannot
+give positive-power growth either.
+\end{proof}
+
+\begin{corollary}\label{cor:minimum}
+The first linear-minimum threshold is also $\ell^2-1$.
+This is a direct proof of Coons's Theorem~1 (CW3): the uniform
+$o(n)$ bound excludes every smaller bound, and~\eqref{eq:critical}
+gives a linear lower bound at the threshold.
+\end{corollary}
+
+\section{Carry plateaux and the strict-adjacency question}
+\begin{lemma}\label{lem:quotients}
+If $q\ge1$, $k\le q\ell-1$, and $n<\ell^{m+1}$, then
+$b_{k,\ell}(n)\le q^m$.
+\end{lemma}
+\begin{proof}
+Write $d_i=u_i+\ell v_i$, where $0\le u_i<\ell$ and
+$0\le v_i<q$. The top digit $d_m<\ell$, so $v_m=0$.
+The record $(v_0,\ldots,v_{m-1})$ determines a representation of
+the fixed $n$: its units residue determines $u_0$, then $v_0$
+determines $d_0$; subtract it, divide by $\ell$, and repeat.
+The record map is injective into $\{0,\ldots,q-1\}^m$.
+\end{proof}
+
+\begin{theorem}[Dumont--Sidorov--Thomas, plateau cases]\label{thm:plateaux}
+Let $2\le q\le\ell$ and $(q-1)(\ell+1)\le k\le q\ell-1$.
+For $R_m=1+\ell+\cdots+\ell^m$ and every $m\ge0$,
+\begin{equation}\label{eq:plateaux}
+ b_{k,\ell}((q-1)R_m)=q^m,
+ \qquad A(k,\ell)=\log_\ell q.
+\end{equation}
+In particular, if $2\le q\le\ell-1$ and
+$(q-1)(\ell+1)\le k\le q\ell-2$, then
+$A(k,\ell)=A(k+1,\ell)$.
+For $\ell\ge3$, taking $q=2$ answers Coons's question negatively.
+\end{theorem}
+\begin{proof}
+For binary carries, a corresponding digit bijection appears in
+de Castro et al.~\cite[equation~(3.3), Proposition~3.4]{Castro} for
+digit cap $2\ell-2$. The following construction allows $q$ carry values.
+Choose $c_1,\ldots,c_m$ independently in $\{0,\ldots,q-1\}$,
+put $c_0=c_{m+1}=0$, and set
+\[
+ d_i=(q-1)+\ell c_{i+1}-c_i\quad(0\le i\le m).
+\]
+These digits lie between zero and $(q-1)(\ell+1)$, and
+their weighted sum is $(q-1)R_m$ by telescoping.
+The equation $\ell c_{i+1}=d_i+c_i-(q-1)$ recovers the carries
+successively from $c_0=0$, so the $q^m$ choices are distinct.
+Since $q-1\le\ell-1$, we have
+$\ell^m\le(q-1)R_m<\ell^{m+1}$, and
+Lemma~\ref{lem:quotients} gives equality.
+
+For all $n\ge2$, Lemma~\ref{lem:quotients} with
+$m=\lfloor\log_\ell n\rfloor$ gives
+$b_{k,\ell}(n)\le n^{\log_\ell q}$.
+At the unbounded integers $(q-1)R_m$, $m\ge1$, the ratio is at least
+$m\log q/((m+1)\log\ell)$, tending to $\log_\ell q$.
+These two bounds prove~\eqref{eq:plateaux} on all natural tails.
+\end{proof}
+
+\begin{corollary}\label{cor:monotone}
+For fixed $\ell$, both $A(k,\ell)$ and $L(k,\ell)$ are finite
+and nondecreasing for $k\ge\ell-1$.
+Thus non-strict adjacency always holds, although strict adjacency does not.
+\end{corollary}
+\begin{proof}
+Inclusion of digit sequences gives
+$1\le b_{k,\ell}(n)\le b_{k+1,\ell}(n)$.
+Lemma~\ref{lem:quotients} with $q=1+\lfloor k/\ell\rfloor$
+gives a finite upper exponent. Taking lower and upper limits of the
+pointwise logarithmic inequalities proves the claims.
+\end{proof}
+
+\section{Lower exponents and a summatory identity}
+The singleton identity in the next theorem is explicit in
+Feng--Liardet--Thomas~\cite[p.~50]{FLT}; the summatory identity and
+its exponent are Dumont--Sidorov--Thomas's Proposition~6.8~\cite{DST}.
+The proofs are included to keep the count conventions and limiting
+arguments self-contained.
+\begin{theorem}\label{thm:lower}
+For $\ell-1\le k\le2\ell-2$, one has
+$b_{k,\ell}(\ell^s-1)=1$ for every $s\ge1$, and $L(k,\ell)=0$.
+For every integer $a\ge1$,
+\begin{equation}\label{eq:summatory}
+ b_{a\ell-1,\ell}(n)=\sum_{t=0}^{\lfloor n/\ell\rfloor}b_{a-1,\ell}(t),
+ \qquad A(a\ell-1,\ell)=L(a\ell-1,\ell)=\log_\ell a.
+\end{equation}
+The ratio defining these two exponents therefore has a limit.
+\end{theorem}
+\begin{proof}
+At $n=\ell^s-1$, its units digit must be congruent to $\ell-1$.
+The only allowed choice when $k\le2\ell-2$ is $\ell-1$.
+Subtracting and dividing by $\ell$ leaves $\ell^{s-1}-1$;
+induction gives the unique ordinary expansion.
+The logarithmic ratio is nonnegative by positivity, and zero on
+this unbounded sequence, proving $L=0$.
+
+For the identity, every allowed digit at bound $a\ell-1$ has a
+unique form $d_i=u_i+\ell v_i$, with $0\le u_i<\ell$ and
+$0\le v_i\le a-1$.
+For every finitely supported sequence $(v_i)$ of weight
+$t=\sum_i v_i\ell^i\le n/\ell$, the ordinary radix expansion of
+$n-\ell t$ uniquely supplies the $u_i$. Conversely digit division
+recovers this pair from any representation of $n$.
+For fixed $t$ there are $b_{a-1,\ell}(t)$ quotient sequences,
+which proves the sum, even when $a>\ell$ and such sequences are
+not unique radix expansions.
+
+If $a=1$, only the zero quotient sequence occurs, so the count is
+one. For $a\ge2$, let
+$S(x)=\sum_{0\le t\le x}b_{a-1,\ell}(t)$.
+If $\ell^h\le x<\ell^{h+1}$, every sequence counted by $S(x)$
+vanishes above index $h$, giving $S(x)\le a^{h+1}$.
+Choose a fixed integer $C\ge0$ with
+$(a-1)\ell^{-C}/(\ell-1)\le1$.
+For $h\ge C$, all sequences supported on the first $h-C$ positions
+have weight at most
+$(a-1)(\ell^{h-C}-1)/(\ell-1)\le\ell^h\le x$.
+There are $a^{h-C}$ of them. Thus
+$S(x)=\Theta(x^{\log_\ell a})$.
+Taking $x=\lfloor n/\ell\rfloor$ proves the exponent limit.
+\end{proof}
+
+At $a=2$ the summatory identity counts the integers whose ordinary
+radix-$\ell$ digits are zero or one. It gives the endpoint of the
+$q=2$ plateau. At $a=\ell$ every quotient count equals one, giving
+Calkin and Wilf's identity~\eqref{eq:critical}; at $\ell=2$ this is
+their identity $b_{3,2}(n)=\lfloor n/2\rfloor+1$.
+The endpoint statements are thus extensions and direct proofs of
+those critical identities; the general-radix summatory formula itself
+is already in~\cite{DST}.
+
+Baker~\cite[Proposition~2.3 and Theorem~2.5, pp.~26, 28--29]{Baker}
+gives the broader convergence criterion
+\[
+ A(k,\ell)=L(k,\ell)\quad\Longleftrightarrow\quad\ell\mid(k+1),
+ \qquad k\ge\ell-1,
+\]
+with common value $\log_\ell((k+1)/\ell)$ in the divisible case.
+His converse proof is attributed there to Stephan Wagner.
+Thus the endpoint convergence below is part of an existing full
+criterion, rather than an isolated case without a classification.
+
+\paragraph{Index in the printed asymptotic.}
+Coons~\cite[Theorem~4]{Coons} writes $k+1=a\ell$ and displays
+the exponent $\log_\ell(a+1)$.
+The exact splitting in~\eqref{eq:summatory} uses $b_{a-1,\ell}$,
+so its logarithmic exponent is instead $\log_\ell a$.
+For example, $a=\ell=2$ gives $b_{3,2}(n)=\lfloor n/2\rfloor+1$
+and exponent $1$, rather than $\log_2 3$.
+Equation~\eqref{eq:summatory} is a corrected replacement statement
+at the level of exact counts and growth exponents; no formula for
+the periodic asymptotic factor is needed here.
+
+\begin{corollary}\label{cor:consequences}
+For $\ell\ge3$ and $\ell+1\le k\le2\ell-2$,
+\[
+ A(k,\ell)=A(k+1,\ell)=\log_\ell2.
+\]
+For $\ell-1\le k\le2\ell-3$ one has
+$L(k,\ell)=L(k+1,\ell)=0$.
+In particular $A(5,4)=A(6,4)=1/2$ and $L(5,4)=L(6,4)=0$.
+The sequence $b_{a\ell-1,\ell}(n)$ is nondecreasing in $n$ and,
+for $a\ge2$, is nonconstant. Consequently, for $\ell\ge3$ the
+bound $2\ell-1<\ell^2-1$ already has nonconstant monotone growth,
+giving a negative answer to CW4, as in Coons's Theorem~3.
+\end{corollary}
+\begin{proof}
+The exponent equalities follow from Theorems~\ref{thm:plateaux}
+and~\ref{thm:lower}. The sum in~\eqref{eq:summatory} is
+nondecreasing, and its positive exponent for $a\ge2$ makes it
+unbounded. This proves the monotonicity assertions.
+\end{proof}
+
+\section{Source coverage and mathematical evidence}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{.31\textwidth}p{.63\textwidth}}
+\toprule
+Source item & Coverage \\
+\midrule
+\endhead
+Coons, Section~3, final display &
+Answered: no; reproved, prior proof Dumont--Sidorov--Thomas (1999),
+Proposition~6.9. Theorem~\ref{thm:plateaux} gives whole intervals of equal
+adjacent upper exponents; Corollary~\ref{cor:monotone} proves non-strict
+monotonicity. \\
+Following lower-limit question &
+Strict adjacency answered: no; prior results Dumont--Sidorov--Thomas
+(1999), Protasov (2000), and Feng--Liardet--Thomas (2014).
+Theorem~\ref{thm:lower} reproves zero
+lower exponents and all endpoints $a\ell-1$; other lower exponents
+are not determined here. \\
+CW2; Calkin--Wilf, Section~10, Question~2; Coons, Section~3 &
+Answered: yes; reproved. Prior implication of Dumont--Sidorov--Thomas
+(1999), Proposition~6.9; later elementary bound IRSI (2026).
+The critical identity is recorded by Calkin--Wilf (1998). \\
+CW3; Coons, Theorem~1 &
+Reproved; prior proof Coons (2026). Corollary~\ref{cor:minimum}
+gives the same threshold by a uniform upper bound. \\
+CW4; Coons, Theorem~3 &
+Answered: no for $\ell\ge3$; prior proof Coons (2026).
+Corollary~\ref{cor:consequences} supplies the explicit monotone family. \\
+CW8; Coons, Theorem~3 &
+Reproved for $k+1$ divisible by $\ell$; prior proof Coons (2026).
+The converse classification is not reproved here. \\
+Coons, Theorem~4, $k+1=a\ell$ &
+Refuted-and-corrected as printed: exponent $\log_\ell(a+1)$ replaced
+by $\log_\ell a$ and the exact identity~\eqref{eq:summatory};
+$a=\ell=2$ is an explicit counterexample to the printed exponent.
+The corrected identity and exponent are prior results of
+Dumont--Sidorov--Thomas (1999), Proposition~6.8. \\
+Convergence of the logarithmic ratio &
+Prior proof cited: Baker (2015), Proposition~2.3 and Theorem~2.5;
+converse proof credited to Wagner. The complete criterion is
+$\ell\mid(k+1)$; only its sufficient direction is reproved here. \\
+Coons, Theorem~2, equation~(4) &
+Reproved at the level of growth order $\Theta(n^{r-1})$;
+prior proof Coons (2026). Its sharper leading coefficient is cited,
+not reproved. The subcritical gap is proved above. \\
+CW1 and CW5 &
+Prior proofs cited in Coons's Theorems~6 and~5, respectively;
+their classifications are not reproved here. \\
+CW6, CW7; Section~3's general digit-set question &
+Not covered as general classifications. Restricting any digit set
+contained in $\{0,\ldots,k\}$ preserves our upper bounds, but
+does not supply the attaining carries or a monotonicity criterion. \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\paragraph{Written proofs and pinned declarations.}
+All the theorems and corollaries above have written proofs.
+The pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/87004d7eb03533d5078ed293778a5b22c8d99aa2/D5/S1/Digit/CoonsAdjacentGrowthRefutation.lean}{\nolinkurl{CoonsAdjacentGrowthRefutation.lean}}
+uses the same finite-support counts and all-natural-tail upper exponent.
+The namespace is
+\begin{center}\texttt{D5.S1.Digit.CoonsAdjacentGrowthRefutation}.\end{center}
+Here \texttt{count\_upper} states the upper bound $2^m$ at radix four,
+$k\le6$, $n<4^{m+1}$;
+\texttt{count\_repunit} states the attaining repunit count for
+$5\le k\le6$;
+\texttt{tail\_supremum} states that every tail has supremum $1/2$;
+\texttt{exponent\_eq\_half} states $A(k,4)=1/2$ for $5\le k\le6$;
+and \texttt{result} negates the universal strict upper comparison.
+The thresholds, larger plateaux, summatory identity, and lower exponents
+are covered by the written proofs, rather than those declarations.
+The accompanying \texttt{verify.py} checks finite coefficients,
+carry constructions, two-digit bounds, and summatory identities with
+exact integers; the ranges and counts are in \texttt{verification.json}.
+These finite checks do not establish the limiting statements.
+
+\begin{thebibliography}{9}
+\bibitem{Coons}
+M. Coons, \emph{The Calkin--Wilf problems on $\ell$-ary partition
+functions}, arXiv:2611.08109v1, 5 November 2026,
+\href{https://arxiv.org/html/2611.08109v1}{versioned full text}.
+\bibitem{CW}
+N. J. Calkin and H. S. Wilf, \emph{Binary partitions of integers and
+Stern--Brocot-like trees}, unpublished preprint, cover dated
+12 January 1998, Section~10, p.~18,
+\href{https://www.math.clemson.edu/~calkin/Papers/calkin_wilf_binary_partitions_unpublished.pdf}{author-hosted PDF}.
+\bibitem{CS}
+M. Coons and L. Spiegelhofer, \emph{The maximal order of
+hyper-($b$-ary)-expansions}, Electronic Journal of Combinatorics
+\textbf{24}(1) (2017), Paper P1.15,
+\href{https://doi.org/10.37236/5441}{doi:10.37236/5441}.
+\bibitem{DST}
+J. M. Dumont, N. Sidorov and A. Thomas,
+\emph{Number of representations related to a linear recurrent basis},
+Acta Arithmetica \textbf{88}(4) (1999), 371--396,
+\href{https://doi.org/10.4064/aa-88-4-371-396}{doi:10.4064/aa-88-4-371-396}.
+\bibitem{Protasov}
+V. Yu. Protasov, \emph{Asymptotic behaviour of the partition function},
+Sbornik: Mathematics \textbf{191}(3) (2000), 381--414,
+\href{https://doi.org/10.1070/SM2000v191n03ABEH000464}{doi:10.1070/SM2000v191n03ABEH000464}.
+\bibitem{FLT}
+D.-J. Feng, P. Liardet and A. Thomas,
+\emph{Partition functions in numeration systems with bounded multiplicity},
+Uniform Distribution Theory \textbf{9}(1) (2014), 43--77,
+\href{https://www.math.cuhk.edu.hk/~djfeng/fengpapers/Feng-Liardet-Thomsa/FengLiardetThomasPartition3R.pdf}{author-hosted full text}.
+\bibitem{Baker}
+L. Baker, \emph{Analytic methods in combinatorial number theory},
+MSc thesis, Stellenbosch University, December 2015, Chapter~2,
+\href{https://hdl.handle.net/10019.1/98017}{institutional record}.
+\bibitem{Castro}
+P. de Castro, D. Domini, T. Edgar, D. M. Johnson, S. Klee and
+R. Sundaresan, \emph{Counting binomial coefficients divisible by a
+prime power}, American Mathematical Monthly \textbf{125}(6) (2018),
+531--540,
+\href{https://doi.org/10.1080/00029890.2018.1449523}{doi:10.1080/00029890.2018.1449523}.
+\bibitem{IRSI}
+IRSI, \emph{A strict power bound for bounded ell-ary partitions},
+web note, displayed update 11 November 2026,
+\href{https://irsi.ai/notes/calkin-wilf-cw2/}{full mathematical argument}.
+\end{thebibliography}
+\medskip\noindent\small
+\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International (CC BY 4.0)}.
+\end{document}
