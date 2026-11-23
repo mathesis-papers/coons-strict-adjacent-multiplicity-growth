@@ -5,13 +5,15 @@
 We give elementary proofs of consequences of Dumont, Sidorov and Thomas (1999, Propositions 6.8-6.9) answering the questions collected by Coons in The Calkin-Wilf problems on ell-ary partition functions (arXiv:2611.08109v1, Section 1, CW2, and Section 3, final display and following sentence): the first-linear-maximum answer is affirmative and the strict-adjacency answer is negative. A two-digit branching bound gives uniformly sublinear growth below digit bound ell^2-1 and all integer-power maximum-growth thresholds. For 2<=q<=ell, the upper logarithmic exponent is log_ell(q) throughout (q-1)(ell+1)<=k<=q*ell-1. The zero lower exponents, endpoint summatory identity, and attaining digit constructions are compared with prior results. We also give a corrected replacement for the exponent printed in Coons's Theorem 4.
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24445675](https://doi.org/10.5281/zenodo.24445675)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24445674](https://doi.org/10.5281/zenodo.24445674)
 - License: CC-BY-4.0
 - Version: 3
 - Mathesis record: [coons-strict-adjacent-multiplicity-growth](https://mathesis-omega-research.apps.chrono-ai.fun/papers/coons-strict-adjacent-multiplicity-growth?version=3)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). Elementary proofs of Dumont-Sidorov-Thomas growth bounds for Calkin-Wilf's and Coons's partition questions. Mathesis, version 3. https://mathesis-omega-research.apps.chrono-ai.fun/papers/coons-strict-adjacent-multiplicity-growth?version=3
+Haobo Ma, Wenlin Zhang (2026). Elementary proofs of Dumont-Sidorov-Thomas growth bounds for Calkin-Wilf's and Coons's partition questions. Mathesis, version 3. https://doi.org/10.5281/zenodo.24445675
 
 ## Statement progress
 

@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24445674",
     "current_version": 3,
-    "doi": null,
+    "doi": "10.5281/zenodo.24445675",
     "lean_source": {
       "revision": "87004d7eb03533d5078ed293778a5b22c8d99aa2",
       "url": "https://github.com/the-omega-institute/trureturing/blob/87004d7eb03533d5078ed293778a5b22c8d99aa2/D5/S1/Digit/CoonsAdjacentGrowthRefutation.lean"
