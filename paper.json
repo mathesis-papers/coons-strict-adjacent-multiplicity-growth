@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24445674",
     "current_version": 3,
     "doi": "10.5281/zenodo.24445675",
+    "kind": "note",
     "lean_source": {
       "revision": "87004d7eb03533d5078ed293778a5b22c8d99aa2",
       "url": "https://github.com/the-omega-institute/trureturing/blob/87004d7eb03533d5078ed293778a5b22c8d99aa2/D5/S1/Digit/CoonsAdjacentGrowthRefutation.lean"
@@ -55,10 +56,12 @@
     "title": "Elementary proofs of Dumont-Sidorov-Thomas growth bounds for Calkin-Wilf's and Coons's partition questions",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-23T18:05:09.432058707Z",
         "revision": "3",
-        "version": 3
+        "version": 3,
+        "version_label": null
       }
     ],
     "work": "coons-strict-adjacent-multiplicity-growth"
